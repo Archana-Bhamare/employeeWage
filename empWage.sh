@@ -1,10 +1,12 @@
 #!/bin/bash -x
-
-empCheck=$((RANDOM%2))
-
-if [ $empCheck -eq 1 ]
+isFullTime=1
+empRatePerHour=20
+random=$((RANDOM%2))
+if [ $random -eq $isFullTime ]
 then
-        echo "Employee is Present"
+	empHrs=8
 else
-        echo "Employee is Absent"
+	empHrs=0
 fi
+DailyWage=$(($empRatePerHour*$empHrs))
+echo "Employee Daily wage is $DailyWage"
